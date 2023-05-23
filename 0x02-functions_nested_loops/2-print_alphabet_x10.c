@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_alphabet - prints the english alphabet to the stdout
+ * print_alphabet_x10 - prints the english alphabet x 10 to the stdout
  *
  * Return: Implicit
  */
