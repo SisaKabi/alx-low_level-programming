@@ -16,7 +16,7 @@ int print_last_digit(int n)
 	if (n == INT_MIN)
 	{
 		_putchar(56);
-		return (8);	
+		return (8);
 	}
 	else if (n < 0)
 	{
