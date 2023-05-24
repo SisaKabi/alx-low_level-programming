@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <limits.h>
 
 /**
  * print_last_digit - finds and prints the last digit to stdout
@@ -15,10 +15,15 @@ int print_last_digit(int n)
 
 	if (n < 0)
 	{
-		conv = (n * -1);
+		conv = (-1 * n);
 		neg = (conv % 10);
 		_putchar(48 + neg);
 		return (neg);
+	}
+	if (n == INT_MIN)
+	{
+		_putchar(56);
+		return (8);
 	}
 	pos = (n % 10);
 	_putchar(48 +  pos);
