@@ -3,15 +3,24 @@
 
 /**
  * print_last_digit - finds and prints the last digit to stdout
- *@b: number to be evaluated. 
+ * @n: number to be evaluated.
  *
  * Return: Last digit.
  */
-int print_last_digit(int b)
+int print_last_digit(int n)
 {
-	int last;
+	int neg;
+	int pos;
+	int conv;
 
-	last = b % 10;
-
-	return (last);
+	if (n < 0)
+	{
+		conv = (n * -1);
+		neg = (conv % 10);
+		_putchar(48 + neg);
+		return (neg);
+	}
+	pos = (n % 10);
+	_putchar(48 +  pos);
+	return (pos);
 }
