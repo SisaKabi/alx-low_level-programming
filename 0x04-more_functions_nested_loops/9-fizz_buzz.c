@@ -14,30 +14,32 @@ int main(void)
 
 	a = 1;
 
-	while (a <= 100)
+	while (a < 100)
 	{
 		if (((a % 3) == 0) && ((a % 5) == 0))
 		{
 			printf("FizzBuzz");
 			printf(" ");
 			a++;
-		}else if ((a % 3) == 0)
+		} else if ((a % 3) == 0)
 		{
 			printf("Fizz");
 			printf(" ");
 			a++;
-		}else if ((a % 5) == 0)
+		} else if ((a % 5) == 0)
 		{
 			printf("Buzz");
 			printf(" ");
 			a++;
-		}else
+		} else
 		{
 			printf("%d", a);
 			printf(" ");
 			a++;
 		}
 	}
+	if (a == 100)
+		printf("Buzz");
 	printf("\n");
 	return (0);
 }
