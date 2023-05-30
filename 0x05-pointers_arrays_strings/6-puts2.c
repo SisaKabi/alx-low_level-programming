@@ -18,7 +18,7 @@ void puts2(char *str)
 		if (str[i] == '\\')
 		{
 			return;
-		}else if (str[i] == '\0')
+		} else if (str[i] == '\0')
 		{
 			return;
 		}
