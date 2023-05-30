@@ -15,6 +15,13 @@ void puts2(char *str)
 
 	while (str[i] != '\0')
 	{
+		if (str[i] == '\\')
+		{
+			return;
+		}else if (str[i] == '\0')
+		{
+			return;
+		}
 		_putchar(str[i]);
 		str++;
 		i = i + 1;
