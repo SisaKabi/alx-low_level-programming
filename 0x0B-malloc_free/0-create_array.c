@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <limits.h>
 #include <stdio.h>
 
 /**
@@ -20,8 +21,19 @@ char *create_array(unsigned int size, char c)
 	}
 	s = (char *)malloc(size * sizeof(char));
 
-	for(i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 		s[i] = c;
 
 	return (s);
+
+	while(1)
+	{
+		s = malloc(INT_MAX);
+		if (s == NULL)
+		{
+			fprintf(stderr, "Not enough memory left!\n");
+			return ((char *)1);
+		}
+	}
+	return (0);
 }
