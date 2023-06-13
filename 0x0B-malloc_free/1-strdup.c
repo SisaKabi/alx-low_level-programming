@@ -25,10 +25,12 @@ char *_strdup(char *str)
 	}
 	if (len == 0)
 	{
-		return (NULL);
+		dup = (char *)malloc(1 * sizeof(char));
+	} else 
+	{
+		dup = (char *)malloc((len + 1) * sizeof(char));
 	}
 
-	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (dup == NULL)
 		return ((char *)NULL);
 	offset = dup;
