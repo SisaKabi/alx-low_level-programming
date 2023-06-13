@@ -23,19 +23,18 @@ char *_strdup(char *str)
 		len++;
 		str++;
 	}
-
 	if (len == 0)
 	{
 		return (NULL);
 	}
-	
+
 	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (dup == NULL)
 		return ((char *)NULL);
 	offset = dup;
 	ptr = str - len;
 
-	while(*ptr)
+	while (*ptr)
 	{
 		*offset = *ptr;
 		offset++;
