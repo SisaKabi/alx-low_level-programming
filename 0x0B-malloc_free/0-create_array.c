@@ -23,10 +23,9 @@ char *create_array(unsigned int size, char c)
 
 	for (i = 0; i < size; i++)
 		s[i] = c;
-
 	return (s);
 
-	while(1)
+	while (1)
 	{
 		s = malloc(INT_MAX);
 		if (s == NULL)
