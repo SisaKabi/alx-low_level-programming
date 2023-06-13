@@ -13,13 +13,18 @@ char *_strdup(char *str)
 	int len = 0;
 	char *dup, *offset, *ptr;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
 	while (*str != '\0')
 	{
 		len++;
 		str++;
 	}
 
-	if (str == NULL || len == 0)
+	if (len == 0)
 	{
 		return (NULL);
 	}
