@@ -80,10 +80,11 @@ char *str_concat(char *s1, char *s2)
 		ptr1++;
 		s1++;
 	}
-
-	*ptr1 = ' ';
-	ptr1++;
-
+	if ((*(ptr1 - 1)) != ' ' && *s2 != ' ')
+	{
+		*ptr1 = ' ';
+		ptr1++;
+	}
 	ptr2 = s2;
 
 	while (*ptr2 != '\0')
