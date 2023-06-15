@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * malloc_checked - uses malloc to allocate memory and 
+ * malloc_checked - uses malloc to allocate memory and
  * checks the return automatically
  * @b: the size of memory to be allocated
  *
@@ -17,7 +17,7 @@ void *malloc_checked(unsigned int b)
 
 	if (hold == NULL)
 	{
-		exit (98);
+		exit(98);
 	}
 	return (hold);
 }
