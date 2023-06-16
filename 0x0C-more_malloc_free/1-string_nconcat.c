@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 /**
  * string_nconcat - concatenates two strings and returns a pointer
@@ -12,44 +13,55 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int len = 0;
-	unsigned int i;
-	char *ptr, *hold;
+	unsigned int len1 = 0, len2 = 0, i;
+	char *ptr, *concat;
 
 	if (s1 != NULL)
 	{
-		while (s1[len] != '\0')
-		{
-			len++;
-		}
-	} else
-	{
-		len = 0;
+		len1 = _strlen(s1);
 	}
-
-	ptr = malloc(sizeof(char) * (len + n + 1));
+	if (s2 != NULL)
+	{
+		len2 = _strlen(s2);
+	}
+	ptr = exceptions(len1, len2, n);
 	if (ptr == NULL)
+	{
 		return (NULL);
+	}
+	concat = ptr;
+	if (len1 > 0)
+	{
+		while (*s1 != '\0')
+		{
+			*ptr = *s1;
+			ptr++;
+			s1++;
+		}
+		if (*(ptr - 1) != ' ' && *s2 != '\0')
+		{
+			*ptr = ' ';
+			ptr++;
+		}
+	}
+	if (len2 > 0 && len2 < n)
+	{
+		while (*s2 != '\0')
+		{
+			*ptr = *s2;
+			ptr++;
+			s2++;
+		}
 
-	hold = ptr;
-
-	while (*s1 != '\0')
+	} else if (len2 > 0 && len2 > n)
 	{
-		*ptr = *s1;
-		ptr++;
-		s1++;
+		for (i = 0; i < n; i++)
+		{
+			*ptr = *s2;
+			ptr++;
+			s2++;
+		}
 	}
-	if (*(ptr - 1) != ' ' && *s2 != ' ')
-	{
-		*ptr = ' ';
-		ptr++;
-	}
-	for (i = 0; i < n; i++)
-	{
-		*ptr = *s2;
-		ptr++;
-		s2++;
-	}
-	ptr = '\0';
-	return (hold);
+	*ptr = '\0';
+	return (concat);
 }
