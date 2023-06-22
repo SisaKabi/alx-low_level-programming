@@ -22,7 +22,7 @@ void print_name_uppercase(char *name)
 {
 	unsigned int i;
 
-	printf("Hello, my name in uppercase is %s\n", name);
+	printf("Hello, my name in uppercase is ");
 	i = 0;
 	while (name[i])
 	{
