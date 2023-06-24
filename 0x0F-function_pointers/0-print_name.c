@@ -14,6 +14,10 @@ void print_name(char *name, void(*f)(char *))
 	{
 		f(name);
 	}
+	else if (name == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		exit(EXIT_FAILURE);
