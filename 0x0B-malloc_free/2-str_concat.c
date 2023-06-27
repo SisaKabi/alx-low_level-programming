@@ -1,78 +1,53 @@
 #include "main.h"
 #include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 /**
- * str_concat - concatenates two strings.
+ * str_concat - concatenates two strings with malloc
  * @s1: first string
  * @s2: second string
  *
- * Return: The final string. NULL on error,
+ * Return: Final string
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *fin, *ptr1, *ptr2;
-	int len1, len2;
+	unsigned int len1 = 0, len2 = 0;
+	char *final, *concat;
 
 	if (s1 != NULL)
+	{
 		len1 = _strlen(s1);
+	}
 	if (s2 != NULL)
+	{
 		len2 = _strlen(s2);
-	if (len1 == 0 && len2 == 0)
-	{
-		fin = (char *)malloc(sizeof(char));
-		*fin = '\0';
-		return (fin);
 	}
-	else if (len1 == 0 && len2 > 0)
-	{
-		fin = (char *)malloc((len2 + 1) * sizeof(char));
-		ptr2 = fin;
-		while (*s2 != '\0')
-		{
-			*ptr2 = *s2;
-			ptr2++;
-			s2++;
-		}
-		*ptr2 = '\0';
-		return (fin);
-	}
-	else if (len1 > 0 && len2 == 0)
-	{
-		fin = (char *)malloc((len1 + 1) * sizeof(char));
-		ptr1 = fin;
-		while (*s1 != '\0')
-		{
-			*ptr1 = *s1;
-			ptr1++;
-			s1++;
-		}
-		*ptr1 = '\0';
-		return (fin);
-	}
-	fin = (char *)malloc(((len1 + len2) + 2) * sizeof(char));
-	if (fin == NULL)
+
+	final = exceptions(len1, len2);
+
+	if (final == NULL)
 		return (NULL);
-	ptr1 = fin;
-	while (*s1 != '\0')
+
+	concat = final;
+
+	while (*s1)
 	{
-		*ptr1 = *s1;
-		ptr1++;
+		*final = *s1;
+		final++;
 		s1++;
 	}
-	if ((*(ptr1 - 1)) != ' ' && *s2 != ' ')
+	if (*(final - 1) != ' ' && *s2 != ' ')
 	{
-		*ptr1 = ' ';
-		ptr1++;
+		*final = ' ';
+		final++;
 	}
-	ptr2 = s2;
-	while (*ptr2 != '\0')
+	while (*s2)
 	{
-		*ptr1 = *ptr2;
-		ptr1++;
-		ptr2++;
+		*final = *s2;
+		final++;
+		s2++;
 	}
-	*ptr1 = '\0';
-
-	return (fin);
+	*final = '\0';
+	return (concat);
 }
